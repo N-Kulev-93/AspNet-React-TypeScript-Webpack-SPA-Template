@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "outDir": "../wwwwroot",
+    "outDir": "../wwwroot",
+    "rootDir": "./src",
     "target": "es2022",
     "module": "preserve",
     "noEmit": true,
@@ -18,8 +19,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "lib": [ "es2022", "dom", "dom.iterable" ]
+    "lib": [ "es2022", "dom", "dom.iterable" ],
+    "jsx": "react-jsx"
   },
-  "include": [ "src/**/*" ],
-  "exclude": [ "node_modules", "test/**/*", "public"]
+  "include": [ "src" ]
 }
