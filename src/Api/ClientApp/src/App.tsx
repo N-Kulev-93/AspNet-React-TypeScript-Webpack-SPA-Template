@@ -1,6 +1,8 @@
 ﻿import React from 'react';
-export const App = () => {
+const App = () => {
     return (
         <React.Fragment>TODO: Add 'get' request example.</React.Fragment>
     )
 }
+
+export default App;
