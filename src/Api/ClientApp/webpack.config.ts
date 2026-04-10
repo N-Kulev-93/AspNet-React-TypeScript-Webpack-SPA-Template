@@ -32,7 +32,7 @@ const config: webpack.Configuration = {
         }
     },
     output: {
-        path: path.resolve(__dirname, "dist/assets"),
+        path: path.resolve(__dirname, "dist"),
     },
     plugins: [
         new HtmlBundlerPlugin({
@@ -46,7 +46,7 @@ const config: webpack.Configuration = {
             },
             js: {
                 filename: "[name].bundle.js",
-                outputPath: "dist/assets/js"
+                outputPath: "assets/js"
             }
         })
     ]
