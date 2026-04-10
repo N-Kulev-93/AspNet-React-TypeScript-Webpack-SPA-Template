@@ -14,6 +14,7 @@ const config: webpack.Configuration = {
     devServer: {
         hot: true,
         open: true,
+        port: 8095,
         proxy: [
             {
                 context: ['/api'],
