@@ -18,8 +18,12 @@ const config: webpack.Configuration = {
                 use: [{ loader: "babel-loader" }]
             },
             {
+                test: /\.s?css$/,
+                use: ['css-loader', 'sass-loader'],
+            },
+            {
                 test: /\.(ico|png|jpe?g|svg)/,
-                type: 'assets/images',
+                type: 'asset/resource',
                 generator: {
                     filename: '[name].[hash:8][ext]',
                 },
@@ -39,7 +43,7 @@ const config: webpack.Configuration = {
         new HtmlBundlerPlugin({
             entry: {
                 index: {
-                    import: "index.html",
+                    import: "views/index.html",
                     data: {
                         title: "Welcome to fat cats SPA template."
                     }
@@ -47,7 +51,7 @@ const config: webpack.Configuration = {
             },
             js: {
                 filename: "[name].bundle.js",
-                outputPath: "assets/js"
+                outputPath: "dist/assets/js"
             }
         }),
         new FaviconsBundlerPlugin({

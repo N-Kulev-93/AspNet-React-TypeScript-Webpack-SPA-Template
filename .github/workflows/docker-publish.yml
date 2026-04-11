@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - feature/add-client-app
+      - feature*
   pull_request:  
   
 jobs:
