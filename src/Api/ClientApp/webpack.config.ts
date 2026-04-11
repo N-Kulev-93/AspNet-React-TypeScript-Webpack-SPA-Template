@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 import webpack from "webpack";
 import "webpack-dev-server";
 import HtmlBundlerPlugin from "html-bundler-webpack-plugin";
+import FaviconsBundlerPlugin from "html-bundler-webpack-plugin/plugins/favicons-bundler-plugin"
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,13 +16,20 @@ const config: webpack.Configuration = {
                 test: /\.(js|ts)x?$/,
                 exclude: /node_modules/,
                 use: [{ loader: "babel-loader" }]
+            },
+            {
+                test: /\.(ico|png|jpe?g|svg)/,
+                type: 'assets/images',
+                generator: {
+                    filename: '[name].[hash:8][ext]',
+                },
             }
         ]
     },
     resolve: {
         alias: {
             '@src': path.join(__dirname, 'src'),
-            '@public': path.join(__dirname, 'public')
+            '@images': path.join(__dirname, 'images')
         }
     },
     output: {
@@ -40,6 +48,20 @@ const config: webpack.Configuration = {
             js: {
                 filename: "[name].bundle.js",
                 outputPath: "assets/js"
+            }
+        }),
+        new FaviconsBundlerPlugin({
+            enabled: 'auto',
+            faviconOptions: {
+                path: '/dist/assets/images',
+                icons: {
+                    android: true,
+                    favicons: true,
+                    windows: false,
+                    yandex: false, 
+                    appleIcon: false,
+                    appleStartup: false
+                }
             }
         })
     ]

@@ -4,6 +4,8 @@ import webpack from "webpack";
 import "webpack-dev-server";
 import HtmlBundlerPlugin from "html-bundler-webpack-plugin";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import FaviconsBundlerPlugin from "html-bundler-webpack-plugin/plugins/favicons-bundler-plugin"
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,20 +36,31 @@ const config: webpack.Configuration = {
                         }
                     },
                 ]
+            },
+            {
+                test: /\.s?css$/,
+                use: ['css-loader', 'sass-loader'],
+            },
+            {
+                test: /\.(ico|png|jpe?g|svg)/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'img/[name].[hash:8][ext]',
+                },
             }
         ]
     },
     resolve: {
         alias: {
             '@src': path.join(__dirname, 'src'),
-            '@public': path.join(__dirname, 'public')
+            '@images': path.join(__dirname, 'images')
         }
     },
     plugins: [
         new HtmlBundlerPlugin({
             entry: {
                 index: {
-                    import: "index.html",
+                    import: "views/index.html",
                     data: {
                         title: "Welcome to fat cats SPA template."
                     }
@@ -56,6 +69,20 @@ const config: webpack.Configuration = {
             js: {
                 filename: "[name].bundle.js",
                 outputPath: "dist/assets/js"
+            }
+        }), 
+        new FaviconsBundlerPlugin({
+            enabled: 'auto',
+            faviconOptions: {
+                path: '/dist/assets/images',
+                icons: {
+                    android: true,
+                    favicons: true,
+                    windows: false, 
+                    yandex: false, 
+                    appleIcon: false,
+                    appleStartup: false
+                }
             }
         }),
         new ReactRefreshWebpackPlugin()
