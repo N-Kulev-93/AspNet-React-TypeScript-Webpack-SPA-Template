@@ -21,6 +21,8 @@ else
     app.UseExceptionHandler(errorHandlingPath: "/error"); //TODO: Not a dev env dependency, add later...
 }
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.MapControllers();
 
