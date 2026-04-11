@@ -14,14 +14,7 @@ const config: webpack.Configuration = {
             {
                 test: /\.(js|ts)x?$/,
                 exclude: /node_modules/,
-                use: [
-                    {
-                        loader: "babel-loader",
-                        options: {
-                            plugins: ['react-refresh/babel']
-                        }
-                    },
-                ]
+                use: [{ loader: "babel-loader" }]
             }
         ]
     },

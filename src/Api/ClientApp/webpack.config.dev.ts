@@ -4,7 +4,6 @@ import webpack from "webpack";
 import "webpack-dev-server";
 import HtmlBundlerPlugin from "html-bundler-webpack-plugin";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
-import { title } from "node:process";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
