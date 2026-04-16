@@ -28,7 +28,7 @@ export default defineConfig(
             }
         },
         rules: {
-            "@eslint-react/no-missing-key": "warn",
+            "@eslint-react/no-missing-key": "warn"
         },
     },
 );
