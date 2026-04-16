@@ -1,6 +1,6 @@
-﻿import React from 'react';
+﻿import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App.tsx';
+import App from './App';
 
 const domNode = document.getElementById('root');
 if (!domNode) {
@@ -9,6 +9,6 @@ if (!domNode) {
 
 const root = createRoot(domNode);
 root.render(
-    <React.StrictMode>
+    <StrictMode>
         <App />
-        </React.StrictMode>        );
+        </StrictMode>        );
