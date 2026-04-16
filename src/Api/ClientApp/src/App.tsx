@@ -1,7 +1,6 @@
-﻿import React from 'react';
-const App = () => {
+﻿const App = () => {
     return (
-        <React.Fragment>TODO: Add 'get' request example12345.</React.Fragment>
+        <div>TODO: Add 'get' request example1234.</div>
     )
 }
 

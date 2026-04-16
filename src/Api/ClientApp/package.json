@@ -19,20 +19,25 @@
     "test": ""
   },
   "devDependencies": {
-    "ts-node": "^10.9.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "typescript": "^6.0.2",
     "@types/node": "^25.5.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-refresh": "^0.18.0",
+    "ts-node": "^10.9.2",
 
     "webpack": "^5.106.0",
     "webpack-cli": "6.0.1",
-    "webpack-dev-server": "5.2.2",
     "html-bundler-webpack-plugin": "^4.23.0",
+    "webpack-dev-server": "5.2.2",
+    "react-refresh": "^0.18.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.2",
+
+    "favicons": "^7.2.0",
+    "sass": "^1.99.0",
+    "sass-loader": "^16.0.7",
+    "css-loader": "^7.1.4",
 
     "babel-loader": "10.0.0",
     "@babel/core": "7.28.5",
@@ -40,9 +45,11 @@
     "@babel/preset-react": "7.28.5",
     "@babel/preset-typescript": "7.28.5",
 
-    "sass": "^1.99.0",
-    "sass-loader": "^16.0.7",
-    "css-loader": "^7.1.4",
-    "favicons": "^7.2.0"
+    "eslint": "^10.2.0",
+    "@eslint/js": "^10.0.1",
+    "eslint-webpack-plugin": "^6.0.0",
+    "@eslint-react/eslint-plugin": "^4.2.3",
+    "typescript-eslint": "^8.58.1",
+    "jiti": "^2.6.1"
   }
 }

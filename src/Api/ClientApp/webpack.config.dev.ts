@@ -4,17 +4,18 @@ import webpack from "webpack";
 import "webpack-dev-server";
 import HtmlBundlerPlugin from "html-bundler-webpack-plugin";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
-import FaviconsBundlerPlugin from "html-bundler-webpack-plugin/plugins/favicons-bundler-plugin"
-
+import FaviconsBundlerPlugin from "html-bundler-webpack-plugin/plugins/favicons-bundler-plugin";
+import ESLintPlugin from "eslint-webpack-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const config: webpack.Configuration = {
     mode: "development",
+    devtool: 'inline-source-map',
     devServer: {
         hot: true,
-        open: true,
+        open: true, 
         port: 8095,
         proxy: [
             {
@@ -51,6 +52,7 @@ const config: webpack.Configuration = {
         ]
     },
     resolve: {
+        extensions: ['.ts', '.tsx', '...'],
         alias: {
             '@src': path.join(__dirname, 'src'),
             '@images': path.join(__dirname, 'images')
@@ -60,7 +62,7 @@ const config: webpack.Configuration = {
         new HtmlBundlerPlugin({
             entry: {
                 index: {
-                    import: "views/index.html",
+                    import: "index.html",
                     data: {
                         title: "Welcome to fat cats SPA template."
                     }
@@ -83,9 +85,14 @@ const config: webpack.Configuration = {
                     appleIcon: false,
                     appleStartup: false
                 }
-            }
+            }   
         }),
-        new ReactRefreshWebpackPlugin()
+        new ReactRefreshWebpackPlugin(),
+        new ESLintPlugin({
+            extensions: ["ts", "tsx"],
+            emitWarning: true,
+            emitError: true
+        }) //TODO: revise all plugins ...
     ]
 };
 

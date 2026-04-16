@@ -31,6 +31,7 @@ const config: webpack.Configuration = {
         ]
     },
     resolve: {
+        extensions: ['.ts', '.tsx', '...'],
         alias: {
             '@src': path.join(__dirname, 'src'),
             '@images': path.join(__dirname, 'images')
@@ -43,7 +44,7 @@ const config: webpack.Configuration = {
         new HtmlBundlerPlugin({
             entry: {
                 index: {
-                    import: "views/index.html",
+                    import: "index.html",
                     data: {
                         title: "Welcome to fat cats SPA template."
                     }
@@ -62,7 +63,7 @@ const config: webpack.Configuration = {
                     android: true,
                     favicons: true,
                     windows: false,
-                    yandex: false, 
+                    yandex: false,
                     appleIcon: false,
                     appleStartup: false
                 }
