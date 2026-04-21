@@ -55,7 +55,7 @@ const config: webpack.Configuration = {
         extensions: ['.ts', '.tsx', '...'],
         alias: {
             '@src': path.join(__dirname, 'src'),
-            '@images': path.join(__dirname, 'images')
+            '@public': path.join(__dirname, 'public')
         }
     },
     plugins: [

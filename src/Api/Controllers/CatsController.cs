@@ -12,7 +12,7 @@ namespace Api.Controllers
     /// <summary>
     /// Example controller for template clients.
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/[controller]")] 
     [ApiController]
     public class CatsController : ControllerBase
     {
