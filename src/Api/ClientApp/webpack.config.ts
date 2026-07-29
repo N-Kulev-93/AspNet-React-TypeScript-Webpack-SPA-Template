@@ -39,7 +39,7 @@ const config: webpack.Configuration = {
         }
     },
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "dist/"),
     },
     plugins: [
         new HtmlBundlerPlugin({
@@ -53,13 +53,13 @@ const config: webpack.Configuration = {
             },
             js: {
                 filename: "[name].bundle.js",
-                outputPath: "dist/assets/js"
+                outputPath: path.join(__dirname, 'dist/assets/js'),
             }
         }),
         new FaviconsBundlerPlugin({
             enabled: 'auto',
             faviconOptions: {
-                path: '/dist/assets/images',
+                path: '/assets/images',
                 icons: {
                     android: true,
                     favicons: true,
