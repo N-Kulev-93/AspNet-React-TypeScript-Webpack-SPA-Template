@@ -4,6 +4,7 @@ import webpack from "webpack";
 import "webpack-dev-server";
 import HtmlBundlerPlugin from "html-bundler-webpack-plugin";
 import FaviconsBundlerPlugin from "html-bundler-webpack-plugin/plugins/favicons-bundler-plugin"
+import WebpackAnalyzer from 'webpack-bundle-analyzer';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -68,6 +69,10 @@ const config: webpack.Configuration = {
                     appleStartup: false
                 }
             }
+        }),
+        new WebpackAnalyzer.BundleAnalyzerPlugin({
+            analyzerMode: "static",
+            reportFilename: "bundle-report.html"
         })
     ]
 };
